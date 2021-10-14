@@ -59,7 +59,7 @@ public class ${table.controllerName} {
 
     @ApiOperation(value = "根据id删除")
     @PostMapping("/delete/{id}")
-    public Result delete(@PathVariable("id") ${cfg.paramy_key_type} id){
+    public Result delete(@PathVariable("id") ${cfg.primary_key_type} id){
         ${table.entityPath}Service.removeById(id);
         return new Result(StatusCode.SUCCESS,"删除成功");
     }
@@ -81,14 +81,14 @@ public class ${table.controllerName} {
 
     @ApiOperation(value = "详情")
     @GetMapping("/get/{id}")
-    public Result get(@PathVariable("id") ${cfg.paramy_key_type} id){
+    public Result get(@PathVariable("id") ${cfg.primary_key_type} id){
         ${entity} ${table.entityPath} = ${table.entityPath}Service.getById(id);
         return new Result(StatusCode.SUCCESS,"查询成功",${table.entityPath});
     }
 
     @ApiOperation(value = "根据id修改")
     @PostMapping("/update/{id}")
-    public Result update(@PathVariable("id") ${cfg.paramy_key_type} id, @RequestBody ${entity} ${table.entityPath}){
+    public Result update(@PathVariable("id") ${cfg.primary_key_type} id, @RequestBody ${entity} ${table.entityPath}){
         ${table.entityPath}.setId(id);
         ${table.entityPath}Service.updateById(${table.entityPath});
         return new Result(StatusCode.SUCCESS,"更新成功");

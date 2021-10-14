@@ -48,10 +48,10 @@ public class GenerateMybatisPlus {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");// 当前项目的路径
         gc.setOutputDir(projectPath + "/src/main/java");// 生成文件输出根目录
-        gc.setAuthor("tanglusheng");// 作者
+        gc.setAuthor("xuhe");// 作者
         gc.setOpen(false); // 生成完成后不弹出文件框
         gc.setFileOverride(true); // 文件是否覆盖
-        gc.setIdType(IdType.ASSIGN_UUID); //主键策略 实体类主键ID类型
+        gc.setIdType(IdType.ASSIGN_ID); //主键策略 实体类主键ID类型
         gc.setDateType(DateType.ONLY_DATE);
         gc.setSwagger2(true); // 是否开启swagger
         gc.setActiveRecord(true); //【不懂】 活动记录 不需要ActiveRecord特性的请改为false 是否支持AR模式
@@ -85,7 +85,7 @@ public class GenerateMybatisPlus {
         pc.setMapper("dao"); // 默认是mapper
         pc.setEntity("entity"); // 默认是entity
         pc.setXml("mapping"); // 默认是默认是mapper.xml
-        pc.setModuleName("demo"); // 控制层请求地址的包名显示
+        pc.setModuleName(null); // 控制层请求地址的包名显示
         mpg.setPackageInfo(pc);
 
         //4、策略配置
@@ -160,7 +160,7 @@ public class GenerateMybatisPlus {
             @Override
             public void initMap() {//自定义参数
                 Map<String, Object> map = new HashMap<>();
-                map.put("paramy_key_type", config.paramyKeyType);
+                map.put("primary_key_type", config.primaryKeyType);
                 map.put("common_package", config.commonPackage);
                 this.setMap(map);
             }

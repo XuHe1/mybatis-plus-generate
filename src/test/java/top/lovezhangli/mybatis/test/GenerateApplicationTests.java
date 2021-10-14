@@ -26,8 +26,8 @@ public class GenerateApplicationTests {
     public String packageParent;
     @Value("${datatables.isNormalize}")
     public boolean isNormalize;
-    @Value("${paramy_key_type}")
-    public String paramyKeyType;
+    @Value("${primary_key_type}")
+    public String primaryKeyType;
     @Value("${common_package}")
     public String commonPackage;
     @Value("${table_prefix}")
